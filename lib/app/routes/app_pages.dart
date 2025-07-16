@@ -19,29 +19,21 @@ class AppPages {
   static const INITIAL = Routes.MAIN;
 
   static final routes = [
-    GetPage(
-      name: _Paths.MAIN,
-      page: () => const MainView(),
-      binding: MainBinding(),
-    ),
-    GetPage(
-      name: _Paths.HOME,
-      page: () => const HomeView(),
-      binding: HomeBinding(),
-    ),
+    GetPage(name: _Paths.MAIN, page: () => MainView(), binding: MainBinding()),
+    GetPage(name: _Paths.HOME, page: () => HomeView(), binding: HomeBinding()),
     GetPage(
       name: _Paths.ABOUT,
-      page: () => const AboutView(),
+      page: () => AboutView(),
       binding: AboutBinding(),
     ),
     GetPage(
       name: _Paths.PROJECTS,
-      page: () => const ProjectsView(),
+      page: () => ProjectsView(),
       binding: ProjectsBinding(),
     ),
     GetPage(
       name: _Paths.CONTACT,
-      page: () => const ContactView(),
+      page: () => ContactView(),
       binding: ContactBinding(),
     ),
   ];
