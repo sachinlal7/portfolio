@@ -38,9 +38,21 @@ jobs:
 
       - name: Deploy to main branch
         run: |
-          git checkout --orphan main
-          git rm -rf .
-          cp -r build/web/* .
+          # Create a temporary directory for deployment
+          mkdir -p /tmp/deploy
+          cp -r build/web/* /tmp/deploy/
+          
+          # Switch to main branch (create if doesn't exist)
+          git fetch origin main || git checkout --orphan main
+          git checkout main || git checkout --orphan main
+          
+          # Clear the branch and copy new files
+          git rm -rf . || true
+          cp -r /tmp/deploy/* .
+          
+          # Add and commit
           git add .
-          git commit -m "Deploy Flutter web build"
+          git commit -m "Deploy Flutter web build from development branch"
+          
+          # Push to main branch
           git push origin main --force
