@@ -4,6 +4,9 @@ on:
   push:
     branches: [ development ]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -13,6 +16,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: development
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -26,10 +31,16 @@ jobs:
       - name: Build web
         run: flutter build web --release
 
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
       - name: Deploy to main branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
-          publish_branch: main
-          force_orphan: true
+        run: |
+          git checkout --orphan main
+          git rm -rf .
+          cp -r build/web/* .
+          git add .
+          git commit -m "Deploy Flutter web build"
+          git push origin main --force
