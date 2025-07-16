@@ -20,10 +20,10 @@ jobs:
           ref: development
           fetch-depth: 0
 
-      - name: Setup Flutter 3.27.1
+      - name: Setup Flutter 3.32.6
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.27.1'
+          flutter-version: '3.32.6'
           channel: 'stable'
 
       - name: Run Flutter doctor
