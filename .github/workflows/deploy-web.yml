@@ -6,6 +6,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
@@ -17,42 +19,28 @@ jobs:
         with:
           ref: development
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Flutter
+      - name: Setup Flutter 3.27.1
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.32.6'
+          flutter-version: '3.27.1'
           channel: 'stable'
 
-      - name: Get dependencies
-        run: flutter pub get
+      - name: Run Flutter doctor
+        run: flutter doctor
 
-      - name: Build web
-        run: flutter build web --release
-
-      - name: Configure Git
+      - name: Clean and get dependencies
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          flutter clean
+          flutter pub get
+
+      - name: Build web project
+        run: flutter build web --release --base-href "/portfolio/"
 
       - name: Deploy to main branch
-        run: |
-          # Create a temporary directory for deployment
-          mkdir -p /tmp/deploy
-          cp -r build/web/* /tmp/deploy/
-          
-          # Switch to main branch (create if doesn't exist)
-          git fetch origin main || git checkout --orphan main
-          git checkout main || git checkout --orphan main
-          
-          # Clear the branch and copy new files
-          git rm -rf . || true
-          cp -r /tmp/deploy/* .
-          
-          # Add and commit
-          git add .
-          git commit -m "Deploy Flutter web build from development branch"
-          
-          # Push to main branch
-          git push origin main --force
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+          publish_branch: main
+          force_orphan: true
