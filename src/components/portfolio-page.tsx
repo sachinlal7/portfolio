@@ -157,7 +157,7 @@ const projects: Project[] = [
       "A role-based rewards and benefits platform for tile masons, painters, plumbers, retailers, and distributors with KYC, QR voucher redemption, passbook tracking, and enquiries.",
     tags: ["Flutter", "GetX", "QR", "Passbook"],
     github: "https://github.com/sachinlal7",
-    live: "https://www.linkedin.com/in/sachinlal7/",
+    live: "https://play.google.com/store/apps/details?id=com.almonds.hil&hl=en_IN",
   },
   {
     title: "Pepsico Loyalty App",
@@ -167,7 +167,7 @@ const projects: Project[] = [
       "A loyalty app for tracking user activities and managing rewards, built with secure tracking, API data integration, and authentication for protected user transactions.",
     tags: ["Flutter", "Rewards", "Authentication", "APIs"],
     github: "https://github.com/sachinlal7",
-    live: "https://www.hackerrank.com/profile/sachinlal138",
+    live: "https://play.google.com/store/apps/details?id=com.almond.pepsicoapp&hl=en_IN",
   },
 ];
 
