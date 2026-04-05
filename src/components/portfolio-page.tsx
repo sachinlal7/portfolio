@@ -134,7 +134,7 @@ const projects: Project[] = [
   {
     title: "Uchaguzi",
     image:
-      "https://play-lh.googleusercontent.com/A8m8IlcNkjXe7A1Zu_xr4qV-E7n08K4cAHNfi4A7BuZ0O5O454hRntm7v77bV3rQz-gZZY4FD9e4ojClo3O3vw=w832-h470-rwa",
+      "https://play-lh.googleusercontent.com/A8m8IlcNkjXe7A1Zu_xr4qV-E7n08K4cAHNfi4A7BuZ0O5O454hRntm7v77bV3rQz-gZZY4FD9e4ojClo3O3vw=w832-h470-rw",
     description:
       "A Kenya-based multi-role Flutter app for politicians, citizens, and suppliers supporting election operations, civic engagement, communication, fundraising, wallet services, and marketplace workflows.",
     tags: ["Flutter","BLoC", "Geofencing", "OCR", "Live Streaming", "Voice Call" ,"Video Call"],
@@ -143,8 +143,7 @@ const projects: Project[] = [
   },
   {
     title: "Shubh Mangal",
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1960&auto=format&fit=crop",
+    image: "/images/shubh-mangal-banner.png",
     description:
       "A role-based loyalty platform for KRBL rice retailers and field users supporting dual campaigns, reward redemption, points tracking, OTP login, and KYC verification.",
     tags: ["Flutter", "BLoC", "REST APIs", "Rewards"],
@@ -153,8 +152,7 @@ const projects: Project[] = [
   },
   {
     title: "BirlaNu Rewards App",
-    image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=2070&auto=format&fit=crop",
+    image: "/images/birla-nu-banner.png",
     description:
       "A role-based rewards and benefits platform for tile masons, painters, plumbers, retailers, and distributors with KYC, QR voucher redemption, passbook tracking, and enquiries.",
     tags: ["Flutter", "GetX", "QR", "Passbook"],
@@ -164,7 +162,7 @@ const projects: Project[] = [
   {
     title: "Pepsico Loyalty App",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      "https://play-lh.googleusercontent.com/A5jBXDmaAipCRCm2NgsLpPdrq_MKI44KkJNDBBwaark7rlZkE-kzPybrFSAhjriRksbq=w832-h470-rw",
     description:
       "A loyalty app for tracking user activities and managing rewards, built with secure tracking, API data integration, and authentication for protected user transactions.",
     tags: ["Flutter", "Rewards", "Authentication", "APIs"],
